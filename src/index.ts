@@ -104,7 +104,13 @@ async function setupViewer() {
       })
       // Last section
 
-      .to(position, {
+      .fromTo(position, {
+        // FROM state (end of previous animation)
+        x: 0.0,
+        y: 0.0,
+        z: 3.25,
+      }, {
+        // TO state (target for this animation)
         x: -3.0,
         y: 0.0,
         z: 0.0,
@@ -113,7 +119,7 @@ async function setupViewer() {
           start: "top bottom",
           end: "top top",
           scrub: true,
-          immediateRender: false,
+          immediateRender: false, // Keep this false for scrub
         },
         onUpdate,
       })
